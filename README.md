@@ -14,13 +14,56 @@ cf help
 cf plugins
 cf orgs
 ```
-# CF Space
+
+# saitamaの設定
+```bash
+## Org:saitama User:qualica01
+# qualica01でログイン
+cf login -a api.run.haas-234.pez.pivotal.io --skip-ssl-validation
+
+# Space "Tokorozawa" を作成
+cf create-space tokorozawa
+# User 03/04にtokorozawaへの権限を付与
+cf set-space-role qualica03 saitama tokorozawa SpaceManager
+cf set-space-role qualica04 saitama tokorozawa SpaceDeveloper
 ```
-cf spaces
-cf delete-space development
-cf create-space dev
-cf create-space prod
+# chibaの設定
+```bash
+## Org:saitama User:qualica02
+# qualica02でログイン
+cf login -a api.run.haas-234.pez.pivotal.io --skip-ssl-validation
+
+# Space "Tokorozawa" を作成
+cf create-space kashiwa
+# User 03/04にtokorozawaへの権限を付与
+cf set-space-role qualica05 chiba kashiwa SpaceManager
+cf set-space-role qualica05 chiba kashiwa SpaceDeveloper
+```
+# 開発
+## Spring Music
+https://github.com/cloudfoundry-samples/spring-music
+## ビルド
+```bash
+## cloing the repo
+git clone https://github.com/cloudfoundry-samples/spring-music.git
+cd spring-music
+## build
+./gradlew clean assemble
 cf target
-cf target -s dev
-cf target
-cf target -s prod
+## manifest.ymlを編集
+## cf push
+cf push
+```
+## DBインスタンスの調達
+cf marketplace
+cf marketplace -s p.mysql
+cf create-service p.mysql db-small hashi-spring-db
+watch -n 3 cf service hashi-spring-db
+
+## スケール
+## アプリケーションとDBを接続
+```
+cf services
+cf bind-service spring-music hashi-spring-db
+cf restage spring-music
+```
