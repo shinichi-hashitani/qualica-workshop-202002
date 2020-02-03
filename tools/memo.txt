@@ -1,0 +1,10 @@
+#1
+gwRI6niPX30n1HvJEC!
+AxA8u-murVfmqGAsvimqqb3j4bjQN2OC
+#2
+https://opsmgr-01.haas-234.pez.pivotal.io
+https://apps.run.haas-234.pez.pivotal.io
+https://appmetrics.run.haas-234.pez.pivotal.io
+https://healthwatch.run.haas-234.pez.pivotal.io
+https://vcsa-01.haas-234.pez.pivotal.io/ui
+https://nsxmgr-01.haas-234.pez.pivotal.io
