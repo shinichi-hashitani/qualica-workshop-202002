@@ -49,6 +49,9 @@ BOSH DirectorにはOps Managerからアクセスする。アクセス事にBOSH 
 
 Ops Managerにログインした状態で Bosh Commandline Credentials の内容をそのままexportに設定する。これでOps Managerからboshコマンドを使用しBOSH Directorを扱う事が出来る。
 ```bash
+# Jumpboxにssh後、Ops Managerにssh。
+ssh -l ubuntu ubuntu-234.haas-234.pez.pivotal.io
+ssh opsmgr-01.haas-234.pez.pivotal.io
 # BOSHが管理するDeplyomentの一覧
 bosh deployments
 # BOSH管理のVMインスタンスの一覧
