@@ -8,7 +8,7 @@ cf login -a api.run.haas-234.pez.pivotal.io --skip-ssl-validation
 # Space "tokorozawa" を作成
 cf create-space tokorozawa
 # User 03/04にtokorozawaへの権限を付与
-cf set-space-role qualica03 saitama tokorozawa SpaceManager
+cf set-space-role qualica03 saitama tokorozawa SpaceDeveloper
 cf set-space-role qualica04 saitama tokorozawa SpaceDeveloper
 ```
 ## chibaの設定
